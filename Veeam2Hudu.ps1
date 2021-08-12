@@ -4282,6 +4282,6 @@ $AssetFields = @{
 }  
 
 
-[Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($($AssetFields|ConvertTo-JSON)))|Out-File -FilePath $OutputFile -AllowClobber -Force
+[Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($($AssetFields|ConvertTo-JSON)))|Out-File -FilePath $OutputFile -Force
 
 #endregion
