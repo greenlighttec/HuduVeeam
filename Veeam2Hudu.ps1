@@ -41,6 +41,8 @@ $rptTitle = "My Veeam Report"
 $showVBR = $true
 # HTML Report Width (Percent)
 $rptWidth = 97
+# Export output to file for pickup later
+$OutputFile = "@outputfile@"
 
 # Location of Veeam executable (Veeam.Backup.Shell.exe)
 $veeamExePath = "C:\Program Files\Veeam\Backup and Replication\Backup\Veeam.Backup.Shell.exe"
@@ -4280,6 +4282,6 @@ $AssetFields = @{
 }  
 
 
-[Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($($AssetFields|ConvertTo-JSON)))
+[Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($($AssetFields|ConvertTo-JSON)))|Out-File -FilePath $OutputFile -AllowClobber -Force
 
 #endregion
